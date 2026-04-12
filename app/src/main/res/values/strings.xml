@@ -1,5 +1,53 @@
 <resources>
     <string name="app_name">PasarUp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">PasarUp</string>
+    <string name="splash_tagline">Belanja Cepat dari UMKM Sekitar</string>
+    <string name="splash_bottom_text">Support UMKM Lokal Indonesia</string>
+    <string name="desc_app_logo">Logo Aplikasi PasarUp</string>
+
+    <!-- Login Screen -->
+    <string name="login_welcome">Selamat Datang</string>
+    <string name="login_subtitle">Masuk ke akun Anda untuk belanja kebutuhan harian</string>
+    <string name="label_email">Email</string>
+    <string name="hint_email">Masukkan Email</string>
+    <string name="label_password">Password</string>
+    <string name="hint_password">Masukkan Password</string>
+    <string name="btn_login">MASUK</string>
+    <string name="login_register_link">Belum punya akun? Daftar</string>
+
+    <!-- Register Screen -->
+    <string name="register_subtitle">Buat akun untuk mulai berbelanja</string>
+    <string name="label_full_name">Nama Lengkap</string>
+    <string name="hint_full_name">Masukkan Nama</string>
+    <string name="label_phone_number">Nomor Telepon</string>
+    <string name="hint_phone_number">08xxxxxxxxxx</string>
+    <string name="label_confirm_password">Konfirmasi Password</string>
+    <string name="hint_confirm_password">Ulangi Password</string>
+    <string name="checkbox_terms">Saya setuju dengan syarat &amp; ketentuan</string>
+    <string name="btn_register_now">DAFTAR SEKARANG</string>
+    <string name="register_login_link">Sudah punya akun? Masuk</string>
+
+    <!-- Beranda Screen -->
+    <string name="home_dikirim_ke">📍 Dikirim ke</string>
+    <string name="home_dummy_alamat">Jl. Sudirman No.42</string>
+    <string name="home_flash_sale">FLASH SALE</string>
+    <string name="home_banner_title">Belanja Cepat\nDari UMKM Lokal</string>
+    <string name="home_btn_belanja">Cek Sekarang</string>
+    <string name="home_kategori_pilihan">Kategori Pilihan</string>
+    <string name="home_cat_sayur">Sayur</string>
+    <string name="home_cat_makanan">Makanan</string>
+    <string name="home_cat_gadget">Gadget</string>
+    <string name="home_cat_jasa">Jasa</string>
+    <string name="home_toko_terdekat">Toko Terdekat</string>
+    <string name="home_toko_bu_siti">Warung Bu Siti</string>
+    <string name="home_toko_rating">⭐ 4.9 • 0.5 km</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_order">Order</string>
+    <string name="nav_profile">Profile</string>
+    <string name="desc_bagikan">Bagikan</string>
+    <string name="desc_logo_toko">Logo Toko</string>
 </resources>

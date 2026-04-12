@@ -5,29 +5,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B71029"
-    tools:context=".splash"
-    tools:ignore="MissingClass">
+    android:background="#B71029">
 
-    <!-- Logo Background -->
+    <!-- Logo -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardLogo"
         android:layout_width="110dp"
         android:layout_height="110dp"
         app:cardCornerRadius="24dp"
         app:cardElevation="8dp"
+        android:layout_marginTop="180dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/txtTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="180dp">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="22dp"
+            android:padding="1dp"
             android:src="@drawable/ic_pasarup"
-            android:scaleType="centerInside"/>
+            android:scaleType="centerInside"
+            android:contentDescription="@string/desc_app_logo"/>
     </androidx.cardview.widget.CardView>
 
     <!-- Nama Aplikasi -->
@@ -35,10 +33,16 @@
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PasarUp"
+        android:text="@string/splash_title"
         android:textColor="#FFFFFF"
-        android:textSize="42sp"
-        android:textStyle="bold"
+        android:textSize="48sp"
+        android:textStyle="bold|italic"
+        android:fontFamily="sans-serif-black"
+        android:letterSpacing="-0.03"
+        android:shadowColor="#66000000"
+        android:shadowDx="0"
+        android:shadowDy="3"
+        android:shadowRadius="10"
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/cardLogo"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,9 +53,12 @@
         android:id="@+id/txtSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Belanja Cepat dari UMKM Sekitar"
+        android:text="@string/splash_tagline"
         android:textColor="#FFE5E5"
         android:textSize="16sp"
+        android:textStyle="italic"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.04"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/txtTitle"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,10 +80,12 @@
         android:id="@+id/txtBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Support UMKM Lokal Indonesia"
+        android:text="@string/splash_bottom_text"
         android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        android:alpha="0.8"
+        android:textSize="13sp"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.08"
+        android:alpha="0.85"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

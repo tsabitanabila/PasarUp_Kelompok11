@@ -1,14 +1,324 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".beranda">
+    android:background="#F8F8F8"
+    tools:context=".BerandaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <!-- HEADER -->
+    <LinearLayout
+        android:id="@+id/headerTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="18dp"
+        android:gravity="center_vertical"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_dikirim_ke"
+                android:textSize="11sp"
+                android:textColor="#777777" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_dummy_alamat"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@android:drawable/ic_menu_share"
+            android:contentDescription="@string/desc_bagikan" />
+    </LinearLayout>
+
+    <!-- CONTENT SCROLL -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/headerTop"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:baselineAligned="false">
+
+            <!-- PROMO BANNER -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#B71029">
+
+                    <TextView
+                        android:id="@+id/txtPromo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_flash_sale"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="18dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtPromo"
+                        android:text="@string/home_banner_title"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="4dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:text="@string/home_btn_belanja"
+                        android:textColor="#B71029"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- KATEGORI -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_kategori_pilihan"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#212121"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="12dp" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="4">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp">
+                    <TextView android:text="🥬" android:textSize="26sp" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:ignore="HardcodedText" />
+                    <TextView android:text="@string/home_cat_sayur" android:textSize="11sp" android:textColor="#424242" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:ignore="SmallSp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp">
+                    <TextView android:text="🍜" android:textSize="26sp" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:ignore="HardcodedText" />
+                    <TextView android:text="@string/home_cat_makanan" android:textSize="11sp" android:textColor="#424242" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:ignore="SmallSp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp">
+                    <TextView android:text="📱" android:textSize="26sp" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:ignore="HardcodedText" />
+                    <TextView android:text="@string/home_cat_gadget" android:textSize="11sp" android:textColor="#424242" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:ignore="SmallSp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp">
+                    <TextView android:text="🛠" android:textSize="26sp" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:ignore="HardcodedText" />
+                    <TextView android:text="@string/home_cat_jasa" android:textSize="11sp" android:textColor="#424242" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:ignore="SmallSp" />
+                </LinearLayout>
+            </GridLayout>
+
+            <!-- TOKO TERDEKAT -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_toko_terdekat"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#212121"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Card Toko -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_pasarup"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/desc_logo_toko" />
+                    </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="0dp"
+                        android:gravity="center_vertical"
+                        tools:ignore="RtlSymmetry">
+                        <TextView android:text="@string/home_toko_bu_siti" android:textStyle="bold" android:textSize="15sp" android:textColor="#212121" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        <TextView android:text="@string/home_toko_rating" android:textSize="12sp" android:textColor="#757575" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- BOTTOM NAV: Clean style -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:baselineAligned="false">
+
+        <!-- Home (Active dengan Outline Lingkaran) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            tools:ignore="UseCompoundDrawables">
+            <FrameLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/circle_outline">
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_home"
+                    app:tint="#B71029"
+                    android:contentDescription="@string/nav_home" />
+            </FrameLayout>
+            <TextView android:text="@string/nav_home" android:textSize="10sp" android:textColor="#B71029" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:ignore="SmallSp" />
+        </LinearLayout>
+
+        <!-- Search -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_search"
+                app:tint="#9E9E9E"
+                android:contentDescription="@string/nav_search" />
+            <TextView android:text="@string/nav_search" android:textSize="10sp" android:textColor="#FF000000" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:ignore="SmallSp" />
+        </LinearLayout>
+
+        <!-- Order -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_pesanan"
+                app:tint="#9E9E9E"
+                android:contentDescription="@string/nav_order" />
+            <TextView android:text="@string/nav_order" android:textSize="10sp" android:textColor="#FF000000" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:ignore="SmallSp" />
+        </LinearLayout>
+
+        <!-- Profile -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_profile"
+                app:tint="#9E9E9E"
+                android:contentDescription="@string/nav_profile" />
+            <TextView android:text="@string/nav_profile" android:textSize="10sp" android:textColor="#FF000000" android:layout_width="wrap_content" android:layout_height="wrap_content" tools:ignore="SmallSp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
