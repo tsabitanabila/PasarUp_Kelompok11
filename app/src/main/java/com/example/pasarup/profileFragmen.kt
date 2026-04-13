@@ -11,7 +11,7 @@ import android.view.ViewGroup
  * Use the [Profile.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Profile : Fragment() {
+class ProfileFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
@@ -41,11 +41,11 @@ class Profile : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Profile.
+         * @return A new instance of fragment ProfileFragment.
          */
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Profile().apply {
+            ProfileFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

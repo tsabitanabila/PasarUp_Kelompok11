@@ -50,4 +50,34 @@
     <string name="nav_profile">Profile</string>
     <string name="desc_bagikan">Bagikan</string>
     <string name="desc_logo_toko">Logo Toko</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_picture">Foto Profil</string>
+    <string name="edit_profile">Edit Profil</string>
+    <string name="menu_orders">Pesanan Saya</string>
+    <string name="menu_wishlist">Wishlist</string>
+    <string name="menu_vouchers">Voucher Saya</string>
+    <string name="menu_wallet">Dompet</string>
+    <string name="menu_reviews">Ulasan Saya</string>
+    <string name="menu_help">Pusat Bantuan</string>
+    <string name="menu_settings">Pengaturan</string>
+    <string name="menu_address">Daftar Alamat</string>
+    <string name="order_product_image">Gambar Produk</string>
+
+    <!-- Dummy Data & Labels -->
+    <string name="dummy_name">Budi Santoso</string>
+    <string name="dummy_member_since">Member sejak 2023</string>
+    <string name="dummy_coins">2.450 Koin</string>
+    <string name="dummy_vouchers">3 Voucher</string>
+    <string name="menu_header_main">Menu Utama</string>
+    <string name="header_recent_orders">Pesanan Terbaru</string>
+    <string name="action_see_all">Lihat Semua</string>
+    <string name="dummy_product_1">Sayur Segar Paket Hemat</string>
+    <string name="dummy_date_1">12 Apr 2026</string>
+    <string name="status_packed">Dikemas</string>
+    <string name="dummy_product_2">Mie Instan Goreng (1 Dus)</string>
+    <string name="dummy_date_2">10 Apr 2026</string>
+    <string name="status_completed">Selesai</string>
+    <string name="icon_coin">🪙</string>
+    <string name="icon_voucher">🎫</string>
 </resources>
