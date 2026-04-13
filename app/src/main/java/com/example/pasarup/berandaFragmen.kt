@@ -16,10 +16,24 @@ class BerandaFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_beranda, container, false)
 
         val navProfile = view.findViewById<LinearLayout>(R.id.navProfile)
+        val navSearch = view.findViewById<LinearLayout>(R.id.navSearch)
+        val navOrder = view.findViewById<LinearLayout>(R.id.navOrder)
+
         navProfile.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.frameLayout, ProfileFragment())
-                .addToBackStack(null)
+                .commit()
+        }
+
+        navSearch.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout, search())
+                .commit()
+        }
+
+        navOrder.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout, pesanan())
                 .commit()
         }
 

@@ -80,4 +80,5 @@
     <string name="status_completed">Selesai</string>
     <string name="icon_coin">🪙</string>
     <string name="icon_voucher">🎫</string>
+    <string name="search_order">Cari Pesanan</string>
 </resources>
