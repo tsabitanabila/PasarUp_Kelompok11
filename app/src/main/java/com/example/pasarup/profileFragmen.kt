@@ -1,16 +1,12 @@
 package com.example.pasarup
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Profile.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
@@ -27,8 +23,31 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+
+        val navHome = view.findViewById<LinearLayout>(R.id.navHome)
+        val navSearch = view.findViewById<LinearLayout>(R.id.navSearch)
+        val navOrder = view.findViewById<LinearLayout>(R.id.navOrder)
+
+        navHome.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout, BerandaFragment())
+                .commit()
+        }
+
+        navSearch.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout, search())
+                .commit()
+        }
+
+        navOrder.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout, pesanan())
+                .commit()
+        }
+
+        return view
     }
 
     companion object {
