@@ -614,7 +614,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="@string/nav_search"
-                android:src="@drawable/ic_search"
+                android:src="@drawable/ic_search_vector"
                 app:tint="#9E9E9E" />
 
             <TextView
@@ -640,7 +640,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="@string/nav_order"
-                android:src="@drawable/ic_pesanan"
+                android:src="@drawable/ic_orders"
                 app:tint="#9E9E9E" />
 
             <TextView
