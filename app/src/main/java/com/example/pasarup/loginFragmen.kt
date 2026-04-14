@@ -28,13 +28,31 @@ class LoginFragment : Fragment() {
             val isiEmail = email.text.toString()
             val isiPassword = password.text.toString()
 
+            val sharedPref = requireActivity().getSharedPreferences("UserPrefs", android.content.Context.MODE_PRIVATE)
+            val registeredEmail = sharedPref.getString("EMAIL", "")
+            val registeredPassword = sharedPref.getString("PASSWORD", "")
+
             if (isiEmail.isEmpty() || isiPassword.isEmpty()) {
                 Toast.makeText(requireContext(), "Isi semua data!", Toast.LENGTH_SHORT).show()
-            } else {
+            } else if (isiEmail == "admin@gmail.com" && isiPassword == "admin123") {
+                // Login Admin khusus
+                with(sharedPref.edit()) {
+                    putBoolean("IS_LOGGED_IN", true)
+                    putString("USERNAME", "Administrator")
+                    apply()
+                }
+                Toast.makeText(requireContext(), "Login Admin Berhasil", Toast.LENGTH_SHORT).show()
+                parentFragmentManager.beginTransaction().replace(R.id.frameLayout, BerandaFragment()).commit()
+            } else if (isiEmail == registeredEmail && isiPassword == registeredPassword) {
+                // Login User dari Register
+                with(sharedPref.edit()) {
+                    putBoolean("IS_LOGGED_IN", true)
+                    apply()
+                }
                 Toast.makeText(requireContext(), "Login Berhasil", Toast.LENGTH_SHORT).show()
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.frameLayout, BerandaFragment())
-                    .commit()
+                parentFragmentManager.beginTransaction().replace(R.id.frameLayout, BerandaFragment()).commit()
+            } else {
+                Toast.makeText(requireContext(), "Email atau Password Salah!", Toast.LENGTH_SHORT).show()
             }
         }
 

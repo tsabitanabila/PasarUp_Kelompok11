@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 class ProfileFragment : Fragment() {
@@ -28,6 +29,12 @@ class ProfileFragment : Fragment() {
         val navHome = view.findViewById<LinearLayout>(R.id.navHome)
         val navSearch = view.findViewById<LinearLayout>(R.id.navSearch)
         val navOrder = view.findViewById<LinearLayout>(R.id.navOrder)
+        val profileName = view.findViewById<TextView>(R.id.profileName)
+
+        // Ambil data dari SharedPreferences
+        val sharedPref = requireActivity().getSharedPreferences("UserPrefs", android.content.Context.MODE_PRIVATE)
+        val savedUsername = sharedPref.getString("USERNAME", "User")
+        profileName.text = savedUsername
 
         navHome.setOnClickListener {
             parentFragmentManager.beginTransaction()

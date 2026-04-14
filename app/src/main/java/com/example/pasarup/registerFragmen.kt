@@ -39,6 +39,15 @@ class RegisterFragment : Fragment() {
             } else if (password.text.toString() != confirm.text.toString()) {
                 Toast.makeText(requireContext(), "Password tidak sama!", Toast.LENGTH_SHORT).show()
             } else {
+                // Simpan data ke SharedPreferences
+                val sharedPref = requireActivity().getSharedPreferences("UserPrefs", android.content.Context.MODE_PRIVATE)
+                with(sharedPref.edit()) {
+                    putString("USERNAME", nama.text.toString())
+                    putString("EMAIL", email.text.toString())
+                    putString("PASSWORD", password.text.toString())
+                    apply()
+                }
+
                 Toast.makeText(requireContext(), "Registrasi Berhasil", Toast.LENGTH_SHORT).show()
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.frameLayout, LoginFragment())
