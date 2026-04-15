@@ -34,6 +34,7 @@
                 app:tint="#9E9E9E" />
 
             <EditText
+                android:id="@+id/etSearch"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="12dp"
@@ -46,18 +47,21 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- CONTENT (KOSONG/DUMMY) -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mulai cari produk favoritmu!"
-        android:textColor="#9E9E9E"
+    <!-- HASIL PENCARIAN (RECYCLERVIEW) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearchResults"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/searchCard"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchCard" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_produk" />
 
-    <!-- BOTTOM NAVIGATION (SEARCH AKTIF) -->
+    <!-- BOTTOM NAVIGATION (TETAP SAMA) -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
@@ -71,7 +75,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Home -->
         <LinearLayout
             android:id="@+id/navHome"
             android:layout_width="0dp"
@@ -79,8 +82,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            tools:ignore="UseCompoundDrawables">
+            android:background="?attr/selectableItemBackgroundBorderless">
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -89,12 +91,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/nav_home"
+                android:text="Home"
                 android:textColor="#9E9E9E"
                 android:textSize="10sp" />
         </LinearLayout>
 
-        <!-- Search (AKTIF) -->
         <LinearLayout
             android:id="@+id/navSearch"
             android:layout_width="0dp"
@@ -102,8 +103,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            tools:ignore="UseCompoundDrawables">
+            android:background="?attr/selectableItemBackgroundBorderless">
             <FrameLayout
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -118,13 +118,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/nav_search"
+                android:text="Search"
                 android:textColor="#B71029"
                 android:textStyle="bold"
                 android:textSize="10sp" />
         </LinearLayout>
 
-        <!-- Order -->
         <LinearLayout
             android:id="@+id/navOrder"
             android:layout_width="0dp"
@@ -132,8 +131,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            tools:ignore="UseCompoundDrawables">
+            android:background="?attr/selectableItemBackgroundBorderless">
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -142,12 +140,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/nav_order"
+                android:text="Pesanan"
                 android:textColor="#9E9E9E"
                 android:textSize="10sp" />
         </LinearLayout>
 
-        <!-- Profile -->
         <LinearLayout
             android:id="@+id/navProfile"
             android:layout_width="0dp"
@@ -155,8 +152,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            tools:ignore="UseCompoundDrawables">
+            android:background="?attr/selectableItemBackgroundBorderless">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/navProfileImage"
                 android:layout_width="24dp"
@@ -168,7 +164,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/nav_profile"
+                android:text="Profil"
                 android:textColor="#9E9E9E"
                 android:textSize="10sp" />
         </LinearLayout>
