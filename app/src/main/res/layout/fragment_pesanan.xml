@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F8F8F8"
     android:fitsSystemWindows="true"
-    tools:context=".PesananFragment">
+    tools:context=".pesanan">
 
     <!-- HEADER -->
     <LinearLayout
@@ -86,8 +86,8 @@
     </com.google.android.material.tabs.TabLayout>
 
     <!-- VIEWPAGER UNTUK KONTEN TAB -->
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvOrderList"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"

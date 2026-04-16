@@ -5,27 +5,39 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class pesanan : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_pesanan, container, false)
-        
-        // Inisialisasi navigasi jika ID nya ada di layout
+
+        // 1. Inisialisasi RecyclerView
+        val rvOrderList = view.findViewById<RecyclerView>(R.id.rvOrderList)
+
+        // 2. Cek apakah ada pesanan
+        if (CartManager.orders.isEmpty()) {
+            Toast.makeText(context, "Belum ada riwayat pesanan", Toast.LENGTH_SHORT).show()
+        }
+
+        // 3. Setup Adapter
+        rvOrderList.layoutManager = LinearLayoutManager(context)
+        rvOrderList.adapter = OrderAdapter(CartManager.orders) { order ->
+            // Aksi saat item pesanan diklik (buka detail)
+            val detailFrag = OrderDetailFragment.newInstance(order)
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout, detailFrag)
+                .addToBackStack(null)
+                .commit()
+        }
+
+        // 4. Navigasi Bottom Navigation
         view.findViewById<LinearLayout>(R.id.navHome)?.setOnClickListener {
             parentFragmentManager.beginTransaction().replace(R.id.frameLayout, BerandaFragment()).commit()
         }
@@ -35,21 +47,7 @@ class pesanan : Fragment() {
         view.findViewById<LinearLayout>(R.id.navProfile)?.setOnClickListener {
             parentFragmentManager.beginTransaction().replace(R.id.frameLayout, ProfileFragment()).commit()
         }
-        
+
         return view
-    }
-
-    companion object {
-        private const val ARG_PARAM1 = "param1"
-        private const val ARG_PARAM2 = "param2"
-
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            pesanan().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }
